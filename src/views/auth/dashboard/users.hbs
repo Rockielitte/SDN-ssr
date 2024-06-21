@@ -1,0 +1,69 @@
+<div class="w-full  py-2 h-full flex gap-4 ">
+  {{>sidebar}}
+  
+  <div class="flex-1 h-full p-2">
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <div class="flex items-center gap-2 w-full">
+
+
+        <caption class="flex-1 p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+            Our members 
+            <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                Here are the members we have in our store, you can create or edit them as you wish.
+              </p>
+        </caption>
+
+</div>
+         </caption>
+
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Member name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Member email
+                </th>
+                               <th scope="col" class="px-6 py-3 text-start">
+                    Admin
+                </th>
+                {{!-- <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Delete</span>
+                </th> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#if members.length}}
+                        {{#each members}}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{this.name}}
+                </th>
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{this.memberName}}
+                </th>
+                <td class="px-6 py-4 text-start">
+                            <input type="checkbox" class=" h-5 w-5 text-blue-600" {{#if this.isAdmin}} checked {{/if}} disabled/>  
+                </td>
+            </tr>
+
+            {{/each}}
+           
+         
+                {{else}}
+ <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white text-center"  colspan="3">
+                    No members found
+                </td></tr>
+            {{/if}}
+        </tbody>
+    </table>
+</div>
+
+  </div>
+</div>
